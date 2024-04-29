@@ -1,0 +1,13 @@
+.dashboard_table {
+  /* background-color: #f4f9fff7; */
+  width: 85%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 255px 255px 255px 255px;
+  column-gap: 35px;
+}
+.Dashboard_table_data {
+  width: 87%;
+  /* background: cadetblue; */
+  margin: 50px auto;
+}
