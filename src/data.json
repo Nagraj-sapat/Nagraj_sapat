@@ -1,0 +1,142 @@
+{
+    "code": 200,
+    "data": [
+      {
+        "items": [
+          {
+            "cash_disc": "0",
+            "discount": "0",
+            "free": "0",
+            "itemId": "LRD250P",
+            "points": "5",
+            "price": "1.0",
+            "qty": "20",
+            "tax": "5"
+          },
+          {
+            "cash_disc": "0",
+            "discount": "0",
+            "free": "0",
+            "itemId": "LRL250P",
+            "points": "5",
+            "price": "1.0",
+            "qty": "45",
+            "tax": "5"
+          }
+        ],
+        "location": {
+          "lattitude": "72.8207042",
+          "logitude": "19.0083918"
+        },
+        "onCart": "30:04:2024 10:12",
+        "orderId": "74W1WJSE-1043",
+        "order_at": "30:04:2024 10:12",
+        "order_by": {
+          "desig": "IT",
+          "id": "45",
+          "name": "Madhusudan"
+        },
+        "r_info": {
+          "area": "new area",
+          "district": "M.P.",
+          "payerId": "SUS003",
+          "r_name": "Sushmeet",
+          "rid": "test123",
+          "s_name": "SUSHMEET ENTERPRISES, RAIPUR",
+          "salesgroup": "MP"
+        },
+        "rid": "test123",
+        "status": "confirm",
+        "status_logs": [
+          {
+            "dateTime": "30:04:2024 10:12",
+            "level": "1",
+            "status": "Confirm",
+            "status_key": "confirm"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "cash_disc": "0",
+            "discount": "0",
+            "free": "0",
+            "itemId": "LRD250P",
+            "points": "5",
+            "price": "1.0",
+            "qty": "10",
+            "tax": "5"
+          },
+          {
+            "cash_disc": "0",
+            "discount": "0",
+            "free": "0",
+            "itemId": "LRE1KGJ",
+            "points": "5",
+            "price": "1.0",
+            "qty": "20",
+            "tax": "5"
+          }
+        ],
+        "location": {
+          "lattitude": "72.8207042",
+          "logitude": "19.0083918"
+        },
+        "onCart": "30:04:2024 09:37",
+        "orderId": "YXJI5GFZ-6372",
+        "order_at": "30:04:2024 09:37",
+        "order_by": {
+          "desig": "IT",
+          "id": "45",
+          "name": "Madhusudan"
+        },
+        "r_info": {
+          "area": "new area",
+          "district": "M.P.",
+          "payerId": "SUS003",
+          "r_name": "Sushmeet",
+          "rid": "test123",
+          "s_name": "SUSHMEET ENTERPRISES, RAIPUR",
+          "salesgroup": "MP"
+        },
+        "rid": "test123",
+        "status": "cancel",
+        "status_logs": [
+          {
+            "dateTime": "30:04:2024 09:38",
+            "level": "1",
+            "status": "Confirm",
+            "status_key": "confirm"
+          },
+          {
+            "dateTime": "30:04:2024 09:38",
+            "level": "2",
+            "status": "Approved",
+            "status_key": "approved"
+          },
+          {
+            "dateTime": "30:04:2024 09:38",
+            "level": "2",
+            "status": "In Progress",
+            "status_key": "inProgress"
+          },
+          {
+            "dateTime": "30:04:2024 09:38",
+            "level": "6",
+            "status": "Cancelled",
+            "status_key": "cancel"
+          }
+        ]
+      }
+    ],
+    "message": "All orders retrieved",
+    "payerId_counts": 1,
+    "total_order_count": 2,
+    "total_quantity": 95,
+    "total_rid_counts": 1
+  }
+
+
+
+  

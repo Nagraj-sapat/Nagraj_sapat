@@ -17,7 +17,7 @@ function Dashboard_cards(props) {
           <p className={`today_orders text-end pt-2 ${props.ClassName}`}>
             {props.Card_text}
           </p>
-          <h2 className="today_orders_count text-end pe-2">0</h2>
+          <h2 className="today_orders_count text-end pe-2">{props.Total}</h2>
         </div>
       </div>
     </>

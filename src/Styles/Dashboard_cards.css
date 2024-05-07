@@ -1,7 +1,8 @@
 .Card_container {
   display: grid;
   grid-template-columns: 102px 138px;
-  background-color: #9fe2bf;
+  /* background-color: #9fe2bf; */
+  background-color: #9fe2ba;
   font-family: sans-serif;
   box-shadow: 5px 8px 13px -8px;
 }

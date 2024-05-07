@@ -11,3 +11,13 @@
   /* background: cadetblue; */
   margin: 50px auto;
 }
+.spinner_container,
+.error_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: larger;
+  font-family: sans-serif;
+  color: crimson;
+}
