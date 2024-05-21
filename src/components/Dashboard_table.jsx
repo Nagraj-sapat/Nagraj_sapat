@@ -89,28 +89,143 @@ function Dashboard_table(props) {
       </thead>
       <tbody>
         {filteredData.map((val, id) => {
-          return (
-            <tr key={id}>
-              <td>{val.orderId}</td>
-              <td>{val.order_at}</td>
-              <td>{val.r_info.r_name}</td>
-              <td>{val.r_info.payerId}</td>
-              <td>{val.r_info.s_name}</td>
-              <td>{val.r_info.area}</td>
-              <td>{val.r_info.salesgroup}</td>
-              <td>{val.order_by.name}</td>
-              <td>{val.status}</td>
-              <td>{Number(val.items[0].qty) + Number(val.items[1].qty)}</td>
-              <td>
-                {val.location.lattitude}
-                <br /> {val.location.logitude}
-              </td>
-            </tr>
-          );
+          if (
+            val.status.toLowerCase() === "confirm" &&
+            val.items[0].length != 0
+          ) {
+            // Check if status is "Cancelled"
+            return (
+              <tr key={id}>
+                <td>{val.orderId}</td>
+                <td>{val.order_at}</td>
+                <td>{val.r_info.r_name}</td>
+                <td>{val.r_info.payerId}</td>
+                <td>{val.r_info.s_name}</td>
+                <td>{val.r_info.area}</td>
+                <td>{val.r_info.salesgroup}</td>
+                <td>{val.order_by.name}</td>
+                <td>{val.status}</td>
+                <td>{val.items[0].qty}</td>
+                <td>
+                  {val.location.lattitude}
+                  <br /> {val.location.logitude}
+                </td>
+              </tr>
+            );
+          } else {
+            return null; // Skip rendering if status is not "Cancelled"
+          }
         })}
       </tbody>
     </table>,
-    "Content for No Order",
+    <table>
+      <thead>
+        <tr>
+          <th
+            onClick={() => handleHeaderClick(0)}
+            className={activeHeader === 0 ? "active" : ""}
+          >
+            Order ID
+          </th>
+          <th
+            onClick={() => handleHeaderClick(1)}
+            className={activeHeader === 1 ? "active" : ""}
+          >
+            Date & Time
+          </th>
+          <th
+            onClick={() => handleHeaderClick(2)}
+            className={activeHeader === 2 ? "active" : ""}
+          >
+            Retailors
+          </th>
+          <th
+            onClick={() => handleHeaderClick(3)}
+            className={activeHeader === 3 ? "active" : ""}
+          >
+            Payer ID
+          </th>
+          <th
+            onClick={() => handleHeaderClick(4)}
+            className={activeHeader === 4 ? "active" : ""}
+          >
+            Stockist
+          </th>
+          <th
+            onClick={() => handleHeaderClick(5)}
+            className={activeHeader === 5 ? "active" : ""}
+          >
+            Area
+          </th>
+          <th
+            onClick={() => handleHeaderClick(6)}
+            className={activeHeader === 6 ? "active" : ""}
+          >
+            Group
+          </th>
+          <th
+            onClick={() => handleHeaderClick(7)}
+            className={activeHeader === 7 ? "active" : ""}
+          >
+            Order By
+          </th>
+          <th
+            onClick={() => handleHeaderClick(8)}
+            className={activeHeader === 8 ? "active" : ""}
+          >
+            Order Status
+          </th>
+          <th
+            onClick={() => handleHeaderClick(9)}
+            className={activeHeader === 9 ? "active" : ""}
+          >
+            Qty
+          </th>
+          <th
+            onClick={() => handleHeaderClick(10)}
+            className={activeHeader === 10 ? "active" : ""}
+          >
+            Location
+          </th>
+          <th
+            onClick={() => handleHeaderClick(11)}
+            className={activeHeader === 11 ? "active" : ""}
+          >
+            Print/View
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {filteredData.map((val, id) => {
+          if (
+            val.status.toLowerCase() === "confirm" &&
+            val.items[0].length === 0
+          ) {
+            // Check if status is "Cancelled"
+            return (
+              <tr key={id}>
+                <td>{val.orderId}</td>
+                <td>{val.order_at}</td>
+                <td>{val.r_info.r_name}</td>
+                <td>{val.r_info.payerId}</td>
+                <td>{val.r_info.s_name}</td>
+                <td>{val.r_info.area}</td>
+                <td>{val.r_info.salesgroup}</td>
+                <td>{val.order_by.name}</td>
+                <td>{val.status}</td>
+                <td>{val.items[0].qty}</td>
+                <td>
+                  {val.location.lattitude}
+                  <br /> {val.location.logitude}
+                </td>
+              </tr>
+            );
+          } else {
+            return null; // Skip rendering if status is not "Cancelled"
+          }
+        })}
+      </tbody>
+    </table>,
     <table>
       <thead>
         <tr>
@@ -203,7 +318,7 @@ function Dashboard_table(props) {
                 <td>{val.r_info.salesgroup}</td>
                 <td>{val.order_by.name}</td>
                 <td>{val.status}</td>
-                <td>{Number(val.items[0].qty) + Number(val.items[1].qty)}</td>
+                <td>{val.items[0].qty}</td>
                 <td>
                   {val.location.lattitude}
                   <br /> {val.location.logitude}
@@ -223,6 +338,7 @@ function Dashboard_table(props) {
   };
 
   const handleSearch = (key) => {
+    console.log(searchQuery);
     const filtered = props.sending_data.filter((item) => {
       if (key.includes(".")) {
         const keys = key.split(".");
@@ -262,7 +378,7 @@ function Dashboard_table(props) {
       Group: item.r_info.salesgroup,
       "Order By": item.order_by.name,
       "Order Status": item.status,
-      Qty: Number(item.items[0].qty) + Number(item.items[1].qty),
+      // Qty: item[0].qty,
       Location: `${item.location.lattitude}, ${item.location.logitude}`,
       "Print/View": "", // You can add the appropriate value here if needed
     }));
@@ -316,6 +432,9 @@ function Dashboard_table(props) {
       case 8:
         handleSearch("status");
         break;
+      case 9:
+        handleSearch("Qty");
+        break;
       default:
         break;
     }
@@ -348,7 +467,7 @@ function Dashboard_table(props) {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">District</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">Sales Group</Dropdown.Item>
                   <Dropdown.Item href="#/action-2">Order By</Dropdown.Item>
                   <Dropdown.Item href="#/action-3">Payer</Dropdown.Item>
                 </Dropdown.Menu>

@@ -33,3 +33,22 @@
   font-weight: 700;
   color: #46a2b5;
 }
+
+/* Media queries start */
+
+@media screen and (360px <= width <= 576px) {
+  .dashboard_table {
+    grid-template-columns: 300px;
+    gap: 35px;
+    justify-content: center;
+  }
+}
+/* @media (orientation: landscape) {
+  .dashboard_table {
+    grid-template-columns: 255px 255px;
+    gap: 35px;
+    justify-content: center;
+  }
+} */
+
+/* Media queries end */
